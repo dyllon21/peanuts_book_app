@@ -17,7 +17,7 @@ module.exports = function(mongoUrl) {
       const UserSchema = mongoose.Schema({
         id : Number,
         name : String,
-        booksRead : [];
+        booksRead : [String]
       })
 
       const Registrations = mongoose.model('Registrations', UserSchema);
@@ -28,11 +28,16 @@ module.exports = function(mongoUrl) {
         author: String,
         genre: String,
         dateWritten: Number,
-        dateAdded: Date,
+        dateAdded: {
+          type: Date,
+          default: Date.now
+        },
         recommendations: Number,
         timesTaken: Number,
         availability: Boolean,
-        currentUser: String,
+        currentUser: {
+          type: String,
+          default: "None"},
         about: String
       });
 
