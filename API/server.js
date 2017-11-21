@@ -3,6 +3,10 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
+const Models = require('./models')
+
+
+
 const port = process.env.PORT || 3000;
 
 app.listen(port, function() {

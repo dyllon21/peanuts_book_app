@@ -14,6 +14,14 @@ module.exports = function(mongoUrl) {
         }
       })
 
+      const UserSchema = mongoose.Schema({
+        id : Number,
+        name : String,
+        booksRead : [];
+      })
+
+      const Registrations = mongoose.model('Registrations', UserSchema);
+
       const BookSchema = mongoose.Schema({
 
         bookName: String,
@@ -31,6 +39,7 @@ module.exports = function(mongoUrl) {
       const Books = mongoose.model('Books', BookSchema);
 
       return {
-        Books
+        Books,
+        Registrations
       };
     }
