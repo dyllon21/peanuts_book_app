@@ -19,7 +19,7 @@ const getBooks = require('./routes/getBooks');
 const getAllAuthors = require('./routes/getAuthors');
 const newUser = require('./routes/newUsers');
 const postBooks = require('./routes/postBooks');
-const updateBooks = require('./routes/updateBooks');
+const returnBooks = require('./routes/returnBooks');
 const deleteBooks = require('./routes/deleteBooks');
 
 // cors
@@ -47,7 +47,7 @@ app.get('/', (req, res, next) => {
             getAllbooks: "/api/v1/books",
             getAllAuthors: "/api/v1/authors",
             postNewBooks: "/api/v1/books",
-            updateBooks: "/api/v1/books/:_id",
+            returnBooks: "/api/v1/books/:_id",
             deleteBooks: "/api/v1/books/:_id"
         }
     });
@@ -57,7 +57,7 @@ app.get('/', (req, res, next) => {
 app.use('/api/v1/books', getBooks);
 app.use('/api/v1/authors', getAllAuthors);
 app.use('/api/v1/books', postBooks);
-app.use('/api/v1/books', updateBooks);
+app.use('/api/v1/books', returnBooks);
 app.use('/api/v1/books', deleteBooks);
 
 const port = process.env.PORT || 3000;
