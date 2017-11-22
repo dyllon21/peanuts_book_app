@@ -6,60 +6,31 @@
       <br>
     <div class="">
       <!-- WITH WEB CCA COMPONENT -->
-      <filter-table tableid="it ems" filter="" data={{itemData}} onrowclick="{{handleRowClick}}"></filter-table>
+      <!-- <filter-table tableid="it ems" filter="" data={{itemData}} onrowclick="{{handleRowClick}}"></filter-table> -->
+      <input class="form-control col-md-3" type="text" data-bind="" placeholder="Filter..." />
+      <br>
       <div class="container">
-          <div class="row">
-              <div class="col-md-2 jumbotron" height="200"></div>
-              <div class="col-md-4">
-                  <h2>Book name</h2>
-                  <p>Genre</p>
-                  <hr>
-                  <p>
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                  </p>
-              </div>
+          <div class="row" data-bind="foreach: books">
+            <div class="card cardBooks" style="width: 20rem; margin: 10px;">
+            <img class="card-img-top jumbotron" height="300" width="100" src="https://images-na.ssl-images-amazon.com/images/I/41bGjxXX%2BhL._SL500_.jpg"
+                alt="Card image cap">
+                <div class="card-body">
+                    <h4 class="card-title" data-bind="text: title"></h4>
+                    <strong class="badge badge-dark">
+                        <i data-bind="text: genre"></i>
+                    </strong>
+                    <hr>
+                    <p class="card-text" data-bind="text: about"></p>
+                    <a href="#" class="btn btn-primary btn-block">Go somewhere</a>
+                </div>
+            </div>
           </div>
           <hr class="invisible">
-          <div class="row">
-              <div class="col-md-2 jumbotron" height="200"></div>
-              <div class="col-md-4">
-                  <h2>Book name</h2>
-                  <p>Genre</p>
-                  <hr>
-                  <p>
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                  </p>
-              </div>
-          </div>
-          <hr class="invisible">
-          <div class="row">
-              <div class="col-md-2 jumbotron" height="200"></div>
-              <div class="col-md-4">
-                  <h2>Book name</h2>
-                  <p>Genre</p>
-                  <hr>
-                  <p>
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                  </p>
-              </div>
-          </div>
-          <hr class="invisible">
-          <div class="row">
-              <div class="col-md-2 jumbotron" height="200"></div>
-              <div class="col-md-4">
-                  <h2>Book name</h2>
-                  <p>Genre</p>
-                  <hr>
-                  <p>
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                  </p>
-              </div>
-          </div>
       </div>
     </div>
   </div>
+</div>
+
+<div class="add-btn fixed-bottom">
+    <input type="button" value="" class="btn btn-primary float-right fa fa-plus fa-lg" style="margin: 50px; border-radius: 100px;">
 </div>
