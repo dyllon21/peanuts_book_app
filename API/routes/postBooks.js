@@ -1,8 +1,6 @@
 'use strict';
-const bookModelImport = require('../models/book.model');
-const bookModel = new bookModelImport;
-const authorModelImported = require('../models/author.model');
-const authorModel = new authorModelImported;
+const bookModel = require('../models/book.model');
+const authorModel = require('../models/author.model');
 const express = require('express');
 const router = express.Router();
 
@@ -10,42 +8,51 @@ router.post('/', (req, res) => {
     let newBook = req.body;
     let code = res.statusCode;
 
-    console.log(newBook);
-
-    bookModel.recommendations = newBook.recommendations;
-    bookModel.dateWritten = newBook.dateWritten;
-    bookModel.bookName = newBook.bookName;
-    bookModel.author = newBook.author;
-    bookModel.genre = newBook.genre;
-    bookModel.about = newBook.about;
-
-console.log(bookModel);
-
-    bookModel.save()
+    bookModel.create({
+            recommendations: newBook.recommendations,
+            dateWritten: newBook.dateWritten,
+            bookName: newBook.bookName,
+            author: newBook.author,
+            genre: newBook.genre,
+            about: newBook.about
+        })
+        .then((book) => {
+            res.json({
+                code,
+                book
+            })
+        })
         .then(() => {
-            authorModelImported.findOne({
+            authorModel.findOne({
                     author: newBook.author
                 })
                 .then((author) => {
                     if (!author) {
-                        newBook.author = authorModel.author;
-                        [newBook] = authorModel.books;
-                    } else {
-                        authorModelImported.books.push(newBook);
-                    }
-                    authorModel.save()
-                        .then((author) => {
+                        authorModel.create({
+                            author: newBook.author,
+                            books: newBook.bookName
+                        })
+                        .then( (author) => {
                             res.json({
                                 code,
                                 author
                             });
                         })
-                        .catch((err) => {
+                    } else {
+                        authorModel.update({
+                            author: newBook.author
+                        }, {
+                            $push: {
+                                books: [newBook.bookName]
+                            }
+                        })
+                        .then( (book) => {
                             res.json({
                                 code,
-                                err
+                                book
                             });
                         })
+                    }
                 })
         })
         .catch((err) => {
