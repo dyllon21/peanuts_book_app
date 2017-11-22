@@ -17,6 +17,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ais', 'ds', 'jet-composites/filter-
       // data service delivers for filter-table component --- data prop requirements
 
       self.formDetails = ko.observable([]);
+      self.query = ko.observable();
       
       $.getJSON("http://peanut-library-api.herokuapp.com/api/v1/books", (allData) => {
         let allBooks = allData.books;
@@ -41,7 +42,15 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ais', 'ds', 'jet-composites/filter-
           type: "post", contentType: "application/json",
           success: function (result) { alert(JSON.stringify(result)) }
         });
-      }; 
+      };
+
+      self.searchBooks = ko.computed(function () {
+        if (self.query()) {
+          return self.books().filter(book => book.title.toLowerCase().includes(self.query()));
+        }
+
+        return self.books();
+      })
 
       self.handleAttached = function(info) {
         // Implement if needed

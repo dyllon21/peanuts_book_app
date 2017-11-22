@@ -4,10 +4,10 @@
     <div class="">
       <!-- WITH WEB CCA COMPONENT -->
       <!-- <filter-table tableid="it ems" filter="" data={{itemData}} onrowclick="{{handleRowClick}}"></filter-table> -->
-      <input class="form-control col-md-3" type="text" data-bind="" placeholder="Filter..." />
+      <input class="form-control col-md-3" type="text" data-bind="value: query" placeholder="filter..." />
       <br>
       <div class="container">
-          <div class="row" data-bind="foreach: books">
+          <div class="row" data-bind="foreach: searchBooks">
             <div class="card cardBooks" style="width: 20rem; margin: 10px;">
             <img class="card-img-top jumbotron" height="300" width="100" data-bind="attr: {src: image}" alt="Card image cap">
             <p data-bind="text: author"></p>
