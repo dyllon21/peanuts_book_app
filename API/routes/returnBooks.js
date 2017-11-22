@@ -14,6 +14,8 @@ router.put('/:_id', (req, res) => {
       recommendationCheck = 1;
     }
 
+    console.log(recommendationCheck);
+
     console.log(bookReturned);
 
     bookModel.findOneAndUpdate({
