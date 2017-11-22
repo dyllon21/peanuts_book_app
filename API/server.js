@@ -16,10 +16,11 @@ mongoose.Promise = global.Promise;
 
 // module routes
 const getBooks = require('./routes/getBooks');
+const getAllAuthors = require('./routes/getAuthors');
+const newUser = require('./routes/newUsers');
 const postBooks = require('./routes/postBooks');
 const updateBooks = require('./routes/updateBooks');
 const deleteBooks = require('./routes/deleteBooks');
-const newUser = require('./routes/newUsers');
 
 // cors
 app.use(function(req, res, next) {
@@ -44,6 +45,7 @@ app.get('/', (req, res, next) => {
         code,
         routes: {
             getAllbooks: "/api/v1/books",
+            getAllAuthors: "/api/v1/authors",
             postNewBooks: "/api/v1/books",
             updateBooks: "/api/v1/books/:_id",
             deleteBooks: "/api/v1/books/:_id"
@@ -53,6 +55,7 @@ app.get('/', (req, res, next) => {
 
 // routes
 app.use('/api/v1/books', getBooks);
+app.use('/api/v1/authors', getAllAuthors);
 app.use('/api/v1/books', postBooks);
 app.use('/api/v1/books', updateBooks);
 app.use('/api/v1/books', deleteBooks);
