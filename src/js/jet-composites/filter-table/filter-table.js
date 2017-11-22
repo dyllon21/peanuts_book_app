@@ -35,7 +35,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojtable', 'ojs/ojarraytabledata
                     });
                 });
                 // add rateLimit
-                self.filterTable.extend({rateLimit: 250});
+                // self.filterTable.extend({rateLimit: 250});
 
                 // parse out the properties passed into the component
                 context.props.then(function(properties) {
