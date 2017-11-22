@@ -3,7 +3,7 @@ const bookModel = require('../models/book.model');
 const express = require('express');
 const router = express.Router();
 
-router.put('/', (req, res) => {
+router.put('/:_id', (req, res) => {
     let code = res.statusCode;
 });
 

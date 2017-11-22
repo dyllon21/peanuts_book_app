@@ -54,8 +54,8 @@ app.get('/', (req, res, next) => {
 // routes
 app.use('/api/v1/books', getBooks);
 app.use('/api/v1/books', postBooks);
-app.use('/api/v1/books/:_id', updateBooks);
-app.use('/api/v1/books/:_id', deleteBooks);
+app.use('/api/v1/books', updateBooks);
+app.use('/api/v1/books', deleteBooks);
 
 const port = process.env.PORT || 3000;
 
