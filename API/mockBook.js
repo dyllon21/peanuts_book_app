@@ -1,10 +1,28 @@
-{
-  bookName: "The King",
-  author: "Steven vd",
-  genre: "Horror",
-  dateWritten: 1978,
-  recommendations: 0,
-  timesTaken : 0,
-  availability: true,
-  about: "A great story of a man who lost his dog, then found it next to a tree."
-}
+const takenBooks = function(req, res, next) {
+    var requestId = req.params.id;
+
+    models.bookModel.findOneAndUpdate({
+      _id : ObjectId(requestId)
+    }, {
+      $inc: {
+        'timesTaken' : ++
+      },
+    }, {
+      upsert : false
+
+    }, function(err, result){
+      if(err){
+        return res.json({
+          status : 'error',
+          error : err,
+          taken : []
+        })
+      }else {
+        res.json({
+          status : 'success',
+          taken: result
+        })
+      }
+    })
+
+  };

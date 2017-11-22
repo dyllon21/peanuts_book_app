@@ -12,7 +12,7 @@ router.delete('/:_id', (req, res) => {
         .then((book) => {
             res.json({
                 code,
-                msg: 'Book delete',
+                msg: 'Book deleted',
                 book
             });
         })
