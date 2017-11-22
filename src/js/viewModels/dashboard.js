@@ -31,13 +31,11 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ais', 'ds', 'jet-composites/filter-
 
       self.handleBindingsApplied = function(info) {
         // Implement if needed
-
       };
 
 
       self.handleDetached = function(info) {
         // Implement if needed
-
       };
     }
 
