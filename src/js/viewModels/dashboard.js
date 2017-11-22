@@ -1,11 +1,12 @@
 define(['ojs/ojcore', 'knockout', 'jquery', 'ais', 'ds', 'jet-composites/filter-table/loader'],
   function(oj, ko, $, ais, ds) {
 
-    function Book(author, title, genre, about) {
+    function Book(author, title, genre, about, image) {
       this.author = author;
       this.title = title;
       this.genre = genre;
       this.about = about;
+      this.image = image;
     }
 
     function DashboardViewModel() {
@@ -15,14 +16,32 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ais', 'ds', 'jet-composites/filter-
       // for web component pattern
       // data service delivers for filter-table component --- data prop requirements
 
+      self.formDetails = ko.observable([]);
+      
       $.getJSON("http://peanut-library-api.herokuapp.com/api/v1/books", (allData) => {
         let allBooks = allData.books;
         var mappedTasks = $.map(allBooks, (book) => {
-          console.log(book);
-          return new Book(book.author, book.bookName, book.genre, book.about);
+          return new Book(book.author, book.bookName, book.genre, book.about, book.image);
         });
         self.books(mappedTasks);
       });
+      
+      self.addBook = function () {
+        let obj = {
+          author: $('.author').val(),
+          bookName: $('.book').val(),
+          genre: $('.genre').val(),
+          dateWritten: $('.date').val(),
+          about: $('.about').val(),
+          image: $('.img').val()
+        }
+        console.log(obj);
+        $.ajax("http://peanut-library-api.herokuapp.com/api/v1/books", {
+          data: JSON.stringify(obj),
+          type: "post", contentType: "application/json",
+          success: function (result) { alert(JSON.stringify(result)) }
+        });
+      }; 
 
       self.handleAttached = function(info) {
         // Implement if needed

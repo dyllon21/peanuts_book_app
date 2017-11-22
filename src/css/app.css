@@ -10,8 +10,18 @@
     animation: fade 2s;
 }
 
+@keyframes run-in {
+    from {
+        margin-bottom: -50px;
+    }
+}
+
+.add-btn {
+    animation: fade 3s;
+}
+
 @keyframes fade {
     from {
-        margin-left: -100px;
+        opacity: 0
     }
 }
