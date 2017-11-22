@@ -29,14 +29,14 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojknockout', 'ojs/ojarray
 
       // Navigation setup
       var navData = [
-      {name: 'Dashboard', id: 'dashboard',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-chart-icon-24'},
+      {name: 'Home', id: 'dashboard',
+       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-home-icon-24'},
       // {name: 'Incidents', id: 'incidents',
       //  iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-fire-icon-24'},
       // {name: 'Customers', id: 'customers',
       //  iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-people-icon-24'},
-      {name: 'About', id: 'about',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24'}
+      {name: 'Members', id: 'about',
+       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-people-icon-24'}
       ];
       self.navDataSource = new oj.ArrayTableDataSource(navData, {idAttribute: 'id'});
 
@@ -59,7 +59,7 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojknockout', 'ojs/ojarray
       // Application Name used in Branding Area
       self.appName = ko.observable("CodeX Dashboard");
       // User Info used in Global Navigation area
-      self.userLogin = ko.observable("user@codex.com");
+      self.userLogin = ko.observable("peanutcomponents@peanuts.com");
 
       // Footer
       function footerLink(name, id, linkTarget) {
