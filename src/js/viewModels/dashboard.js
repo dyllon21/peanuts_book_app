@@ -36,21 +36,20 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ais', 'ds', 'jet-composites/filter-
           about: $('.about').val(),
           image: $('.img').val()
         }
-        console.log(obj);
         $.ajax("http://peanut-library-api.herokuapp.com/api/v1/books", {
           data: JSON.stringify(obj),
           type: "post", contentType: "application/json",
-          success: function (result) { alert(JSON.stringify(result)) }
+          success: function (result) { alert("new book succesfully added") }
         });
       };
 
       self.searchBooks = ko.computed(function () {
         if (self.query()) {
-          return self.books().filter(book => book.title.toLowerCase().includes(self.query()));
+          return self.books().filter(book => book.title.toLowerCase().includes(self.query().toLowerCase()));
         }
 
         return self.books();
-      })
+      });
 
       self.handleAttached = function(info) {
         // Implement if needed
