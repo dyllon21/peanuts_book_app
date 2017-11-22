@@ -51,23 +51,23 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ais', 'ds', 'jet-composites/filter-
       self.handleAttached = function (info) {
 
 
-        // DOM is ready
-        // can use jQuery to inject our table html
-        // const tableEl = $("#myTarget");
-        // $.each(self.itemsArray(), function (i,o){
-        //   //console.log(JSON.stringify(o))
-        //   const kys = Object.keys(o);
-        //   $.each(kys, function(idx,obj) {
-        //     tableEl.append('<tr><td>'+obj+'</td><td>'+o[obj]+'</td></tr>')
-        //   });
+        DOM is ready
+        can use jQuery to inject our table html
+        const tableEl = $("#myTarget");
+        $.each(self.itemsArray(), function (i,o){
+          //console.log(JSON.stringify(o))
+          const kys = Object.keys(o);
+          $.each(kys, function(idx,obj) {
+            tableEl.append('<tr><td>'+obj+'</td><td>'+o[obj]+'</td></tr>')
+          });
 
-        // })
+        })
 
 
-        // inject custom components
-        // for(var x=0;x<15;x++){
-        //   $('#appHolder').append('<overview-card name="name" maincolor="#c1c1c1" highlight="#B3CD62" observables="{{cachedNumber}}" clicked="{{handleRowClick}}" icon="home-icon-24"></overview-card>')
-        // }
+        inject custom components
+        for(var x=0;x<15;x++){
+          $('#appHolder').append('<overview-card name="name" maincolor="#c1c1c1" highlight="#B3CD62" observables="{{cachedNumber}}" clicked="{{handleRowClick}}" icon="home-icon-24"></overview-card>')
+        }
 
 
       };
