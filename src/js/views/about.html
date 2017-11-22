@@ -37,29 +37,31 @@
     <div class="card card-body">
         <br>
         <label for="userId" class="form-label"><h4>Member Id :</h4></label>
-        <input class="form-control col-md-4" id="userId" type="text" name="" value="" placeholder="search new loaner book">
+        <input data-bind=""class="form-control col-md-4" id="userId" type="text" name="" value="" placeholder="search new loaner book">
         <br>
-        <button class="btn btn-primary col-sm-2 " type="button" name="button">confirm</button>
+        <button data-bind=""class="btn btn-primary col-sm-2 " type="button" name="button">confirm</button>
         <br><br>
 
     </div>
 </div>
-<div class="collapse" id="collapseExamples">
-    <div class="card card-body">
-        <br>
-        <label for="userId" class="form-label"><h4>create a new member Id:</h4></label>
-        <input data-bind="value: firstName" class="form-control col-md-4" id="userId" type="text" name="" value="" placeholder="member name">
-        <br>
-        <input data-bind="value: LastName" class="form-control col-md-4" id="userId" type="text" name="" value="" placeholder="member surname">
-<div class="">
-<!-- <p>this is the member </p> -->
-</div>
-        <br>
-        <button class="btn btn-primary col-sm-2 " type="button" name="button">confirm</button>
-        <br><br>
+<form data-bind="submit: addMember">
+    <div class="collapse" id="collapseExamples">
+        <div class="card card-body">
+            <br>
+            <label for="userId" class="form-label"><h4>create a new member Id:</h4></label>
+            <input data-bind="" class="form-control col-md-4 firstName" id="userId"  type="text" name="" value="" placeholder="member name">
+            <br>
+            <input data-bind="" class="form-control col-md-4 lastName" id="userId" type="text" name="" value="" placeholder="member surname">
+            <div class="">
+                <!-- <p>this is the member </p> -->
+            </div>
+            <br>
+            <input class="btn btn-primary col-sm-2 " type="submit" name="button" value="submit"/>
+            <br><br>
 
+        </div>
     </div>
-</div>
+</form>
 <!-- recommended button -->
 
 <!-- <div class="rows">
