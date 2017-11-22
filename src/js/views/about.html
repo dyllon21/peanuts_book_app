@@ -4,18 +4,24 @@
  -->
 
 <center class="">
+
+    <!-- this is the return a book button -->
     <p class="container">
-        <a class="btn btn-info col-sm-5" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <a class="btn btn-info col-sm-3" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
             return books
         </a>
+
         <!-- //this is for loaning a new book -->
-        <button class="btn btn-info col-sm-5" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <button class="btn btn-info col-sm-3" type="button" data-toggle="collapse" data-target="#collapseExampler" aria-expanded="false" aria-controls="collapseExample">
             loan new book
+        </button>
+        <button class="btn btn-info col-sm-3" type="button" data-toggle="collapse" data-target="#collapseExamples" aria-expanded="false" aria-controls="collapseExample">
+            add new member
         </button>
     </p>
 </center>
 
-
+<!-- this is the pop up of the returning books button -->
 <div class="collapse" id="collapseExample">
     <div class="card card-body">
         <br>
@@ -24,10 +30,36 @@
         <br>
         <button class="btn btn-primary col-sm-2 " type="button" name="button">confirm</button>
         <br><br>
+    </div>
+</div>
+<!-- this is the exampler -->
+<div class="collapse" id="collapseExampler">
+    <div class="card card-body">
+        <br>
+        <label for="userId" class="form-label"><h4>Member Id :</h4></label>
+        <input class="form-control col-md-4" id="userId" type="text" name="" value="" placeholder="search new loaner book">
+        <br>
+        <button class="btn btn-primary col-sm-2 " type="button" name="button">confirm</button>
+        <br><br>
 
     </div>
 </div>
+<div class="collapse" id="collapseExamples">
+    <div class="card card-body">
+        <br>
+        <label for="userId" class="form-label"><h4>create a new member Id:</h4></label>
+        <input data-bind="value: firstName" class="form-control col-md-4" id="userId" type="text" name="" value="" placeholder="member name">
+        <br>
+        <input data-bind="value: LastName" class="form-control col-md-4" id="userId" type="text" name="" value="" placeholder="member surname">
+<div class="">
+<!-- <p>this is the member </p> -->
+</div>
+        <br>
+        <button class="btn btn-primary col-sm-2 " type="button" name="button">confirm</button>
+        <br><br>
 
+    </div>
+</div>
 <!-- recommended button -->
 
 <!-- <div class="rows">
